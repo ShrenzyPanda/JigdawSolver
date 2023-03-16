@@ -88,18 +88,17 @@ def main():
             cut = img.shape[0]//6
             for i in range(6):
                 for j in range(6):
-                    r, c = int(output[i*6 + j])
-                    r = int(r/6)
-                    c = int(r%6)
+                    r1 = int(output[i*6 + j])
+                    r = int(r1/6)
+                    c = int(r1%6)
                     new_im[r*cut:(r+1)*cut, c*cut:(c+1)*cut] = img[i*cut:(i+1)*cut, j*cut:(j+1)*cut]
             #new_im is the output
-            final = Image.fromarray(new_im)
-            final_op = Image.open(fina)
+            final = Image.fromarray(new_im,dtype=uint8)
 
             col1.write('''
 		    ## Results 
 		    ''')
-            col1.success(st.image(final_op,caption="Solution Image"))
+            col1.success(st.image(final,caption="Solution Image"))
     hide_menu_style = """
     <style>
     #MainMenu {visibility: hidden;}
