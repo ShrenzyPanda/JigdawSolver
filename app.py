@@ -70,7 +70,7 @@ def main():
                     c = int(r1%6)
                     new_im[r*cut:(r+1)*cut, c*cut:(c+1)*cut] = img[i*cut:(i+1)*cut, j*cut:(j+1)*cut]
             #new_im is the output
-            final = Image.fromarray(new_im,dtype=uint8)
+            final = Image.fromarray(new_im.astype(np.uint8))
 
             col1.write('''
 		    ## Results 
@@ -88,12 +88,12 @@ def main():
             cut = img.shape[0]//6
             for i in range(6):
                 for j in range(6):
-                    r1 = int(output[i*6 + j])
+                    r1 = int(output[0][i*6 + j])
                     r = int(r1/6)
                     c = int(r1%6)
                     new_im[r*cut:(r+1)*cut, c*cut:(c+1)*cut] = img[i*cut:(i+1)*cut, j*cut:(j+1)*cut]
             #new_im is the output
-            final = Image.fromarray(new_im,dtype=uint8)
+            final = Image.fromarray(new_im.astype(np.uint8))
 
             col1.write('''
 		    ## Results 
