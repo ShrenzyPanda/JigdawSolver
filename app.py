@@ -61,7 +61,7 @@ def main():
             img = crop_images(img1)
             output = loaded_model.predict(img)
             output = np.argmax(output, axis=-1)
-            new_im = np.zeros_like(img, dtype=np.int32)
+            new_im = np.zeros_like(img1, dtype=np.int32)
             cut = img.shape[0]//6
             for i in range(6):
                 for j in range(6):
