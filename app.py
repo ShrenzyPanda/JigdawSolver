@@ -61,7 +61,7 @@ def main():
             img = crop_images(img1)
             output = loaded_model.predict(img)
             output = np.argmax(output, axis=-1)
-            new_im = np.zeros_like(img1, dtype=np.int32)
+            new_im = np.zeros(img1.shape)
             cut = img.shape[0]//6
             for i in range(6):
                 for j in range(6):
@@ -84,16 +84,16 @@ def main():
             img = crop_images(img1)
             output = loaded_model.predict(img)
             output = np.argmax(output, axis=-1)
-            new_im = np.zeros_like(img1, dtype=np.int32)
+            new_im = np.zeros(img1.shape)
             cut = img.shape[0]//6
             for i in range(6):
                 for j in range(6):
                     r1 = int(output[0][i*6 + j])
                     r = int(r1/6)
                     c = int(r1%6)
-                    new_im[r*cut:(r+1)*cut, c*cut:(c+1)*cut] = img[i*cut:(i+1)*cut, j*cut:(j+1)*cut]
+                    new_im[r*cut:(r+1)*cut, c*cut:(c+1)*cut] = img1[i*cut:(i+1)*cut, j*cut:(j+1)*cut]
             #new_im is the output
-            final = Image.fromarray(np.uint8(new_im))
+            final = Image.fromarray(new_im.astype(np.uint8))
 
             col1.write('''
 		    ## Results 
