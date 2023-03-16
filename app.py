@@ -93,7 +93,7 @@ def main():
                     c = int(r1%6)
                     new_im[r*cut:(r+1)*cut, c*cut:(c+1)*cut] = img[i*cut:(i+1)*cut, j*cut:(j+1)*cut]
             #new_im is the output
-            final = Image.fromarray(new_im.astype(np.uint8))
+            final = Image.fromarray(np.uint8(new_im))
 
             col1.write('''
 		    ## Results 
