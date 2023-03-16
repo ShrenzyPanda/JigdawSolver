@@ -29,7 +29,7 @@ def main():
 
     html_temp = """
     <div>
-    <h1 style="color:MEDIUMSEAREDN;text-align:left;">CropMaxify Recommendation</h1>
+    <h1 style="color:MEDIUMSEAREDN;text-align:left;">Jigsaw Solver</h1>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
